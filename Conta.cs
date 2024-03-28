@@ -4,9 +4,33 @@ namespace ContaBancariaOO
 {
     class Conta
     {
+        private string _nomeTitular;
+        private double _saldo;
+
         public int NumeroConta { get; }
-        public string NomeTitular;
-        public double Saldo;
+        public int Quantidade { get; set; }
+
+        public string NomeTitular
+        {
+            get
+            {
+                return _nomeTitular;
+            }
+            set 
+            {
+                _nomeTitular = value; 
+            }
+        }
+
+        public double Saldo
+        {
+            get {
+                return _saldo;
+            }
+            set {
+                _saldo = value;
+            }
+        }
 
         private static int proximoNumeroConta = 1000;
 
@@ -84,9 +108,10 @@ namespace ContaBancariaOO
             double valor = double.Parse(Console.ReadLine());
 
             if (operacao == "sacar")
-                Sacar(valor + 5.0); 
+                Sacar(valor + 5.0);
             else
                 Depositar(valor);
         }
     }
+
 }
